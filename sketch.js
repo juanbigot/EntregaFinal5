@@ -137,7 +137,7 @@ userStartAudio();
 
   // Sonido por Tamaño
 for (let i = 0; i < 15; i++) {
-  if (amp > 0.35 && particles[i].r < tamaños[i] + 10){
+  if (amp > 0.35 && particles[i].r < tamaños[i] + 15){
    particles[i].r += 5;
    particles[i].body.r += 10;
   } else {
