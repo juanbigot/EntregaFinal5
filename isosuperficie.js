@@ -11,14 +11,24 @@ function drawColorsBeige() {
       let xx = particles[0 + i].body.position.x + particles[i].r * 1.81 * cos(j);
       let yy = particles[0 + i].body.position.y + particles[i].r * 1.81 * sin(j);
 
-      let p = res(xx, yy);
+      let p = morph(xx, yy);
       curveVertex(p.x, p.y);
     }
     endShape(CLOSE);
 
- 
-
   }
+  beginShape();
+  strokeWeight(0.5);
+  stroke(0);
+  for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+    let xx = particles[0].body.position.x + particles[0].r * 9.81 * cos(j);
+    let yy = particles[0].body.position.y + particles[0].r * 9.81 * sin(j);
+  
+    let p = morph(xx, yy);
+    curveVertex(p.x, p.y);
+  }
+  endShape(CLOSE);
+
   for (var i = 0; i < particles.length; i++) {
     /// lo corrigo muy a lo indio pero creativo
   
@@ -29,13 +39,29 @@ function drawColorsBeige() {
       let xx = particles[0 + i].body.position.x + particles[i].r * 1.8 * cos(j);
       let yy = particles[0 + i].body.position.y + particles[i].r * 1.8 * sin(j);
 
-      let p = res(xx, yy);
+      let p = morph(xx, yy);
       curveVertex(p.x, p.y);
     }
     endShape(CLOSE);
 
   }
+  
+  /////
 
+  
+  beginShape();
+  noStroke();
+  fill(227, 208, 156); //beige
+  
+  for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+    let xx = particles[0].body.position.x + particles[0].r * 9.8 * cos(j);
+    let yy = particles[0].body.position.y + particles[0].r * 9.8 * sin(j);
+  
+    let p = morph(xx, yy);
+    curveVertex(p.x, p.y);
+  }
+  endShape(CLOSE);
+////
 
 }
 
@@ -51,11 +77,24 @@ function drawColorsCeleste2() {
       let xx = particles[0 + i].body.position.x + particles[i].r * 1.51 * cos(j);
       let yy = particles[0 + i].body.position.y + particles[i].r * 1.51 * sin(j);
 
-      let p = res(xx, yy);
+      let p = morph(xx, yy);
       curveVertex(p.x, p.y);
     }
     endShape(CLOSE);
   }
+  beginShape();
+  strokeWeight(0.5);
+  stroke(0);
+  for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+    let xx = particles[0].body.position.x + particles[0].r * 6.81 * cos(j);
+    let yy = particles[0].body.position.y + particles[0].r * 6.81 * sin(j);
+  
+    let p = morph(xx, yy);
+    curveVertex(p.x, p.y);
+  }
+  endShape(CLOSE);
+
+
   for (var i = 0; i < particles.length; i++) {
     noStroke();
     beginShape();
@@ -63,69 +102,93 @@ function drawColorsCeleste2() {
       let xx = particles[0 + i].body.position.x + particles[i].r * 1.5 * cos(j);
       let yy = particles[0 + i].body.position.y + particles[i].r * 1.5 * sin(j);
 
-      let p = res(xx, yy);
+      let p = morph(xx, yy);
       curveVertex(p.x, p.y);
     }
     endShape(CLOSE);
   }
+
+
+
+
 }
 
 function drawColorsCeleste1() {
   for (var i = 0; i < particles.length; i++) {
     strokeWeight(0.5);
     stroke(0);
-    ellipse(
-      particles[0 + i].body.position.x,
-      particles[0 + i].body.position.y,
-      particles[i].r * 2.61,
-      particles[i].r * 2.71
-    );
+    fill(54, 162, 164); //celeste01
+    beginShape();
+    for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+      let xx = particles[0 + i].body.position.x + particles[i].r * 1.4 * cos(j);
+      let yy = particles[0 + i].body.position.y + particles[i].r * 1.4 * sin(j);
+
+      let p = morph(xx, yy);
+      curveVertex(p.x+0.1, p.y+0.1);
+    }
+    endShape(CLOSE);
   }
+  beginShape();
+  strokeWeight(0.5);
+  stroke(0);
+  for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+    let xx = particles[0].body.position.x + particles[0].r * 4.81 * cos(j);
+    let yy = particles[0].body.position.y + particles[0].r * 4.81 * sin(j);
+  
+    let p = morph(xx, yy);
+    curveVertex(p.x, p.y);
+  }
+  endShape(CLOSE);
   for (var i = 0; i < particles.length; i++) {
     noStroke();
     fill(54, 162, 164); //celeste01
-    ellipse(
-      particles[0 + i].body.position.x,
-      particles[0 + i].body.position.y,
-      particles[i].r * 2.6,
-      particles[i].r * 2.7
-    );
+    beginShape();
+    for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+      let xx = particles[0 + i].body.position.x + particles[i].r * 1.4 * cos(j);
+      let yy = particles[0 + i].body.position.y + particles[i].r * 1.4 * sin(j);
+
+      let p = morph(xx, yy);
+      curveVertex(p.x, p.y);
+    }
+    endShape(CLOSE);
   }
+
+
+
 }
 
 function drawColorsNaranja() {
-  rcambio = getRandomDiameter()
-
-
+  
   for (var i = 0; i < particles.length; i++) {
-    
-    
     strokeWeight(0.5);
     stroke(0);
-    ellipse(
-      particles[0 + i].body.position.x,
-      particles[0 + i].body.position.y,
-      particles[i].r *2 + 0.1,
-      particles[i].r *2 + 0.1
-      
-    );
+    beginShape();
+    for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+      let xx = particles[0 + i].body.position.x + particles[i].r * 1.1 * cos(j);
+      let yy = particles[0 + i].body.position.y + particles[i].r * 1.1 * sin(j);
+
+      let p = morph(xx, yy);
+      curveVertex(p.x+0.1, p.y+0.1);
+    }
+    endShape(CLOSE);
   }
   
   for (var i = 0; i < particles.length; i++) {
     noStroke();
     fill(236, 102, 72); //NARANJA
-    
-    ellipse(
-      particles[0 + i].body.position.x,
-      particles[0 + i].body.position.y,
-      particles[i].r * 2,
-      particles[i].r * 2
-      
-    );
+    beginShape();
+    for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+      let xx = particles[0 + i].body.position.x + particles[i].r * 1.1 * cos(j);
+      let yy = particles[0 + i].body.position.y + particles[i].r * 1.1 * sin(j);
+
+      let p = morph(xx, yy);
+      curveVertex(p.x, p.y);
+    }
+    endShape(CLOSE);
 
    
   }
- 
+
 
 }
 

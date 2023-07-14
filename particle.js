@@ -6,12 +6,12 @@ function Particle(x, y, r) {
   this.body = Bodies.circle(x, y, r, options);
   this.r = r;
   World.add(world, this.body);
-  
+
   this.show = function () {
     var pos = this.body.position;
     var angle = this.body.angle;
-    
-    push();  //////////////////////////////////////////////////////
+
+    push(); //////////////////////////////////////////////////////
     translate(pos.x, pos.y);
     rotate(angle);
     rectMode(CENTER);
@@ -22,37 +22,26 @@ function Particle(x, y, r) {
     fill(234, 73, 135); //fuxia
     beginShape();
     for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-      let xx = 0 + this.r *0.8 * cos(j);
-      let yy = 0 + this.r *0.85 * sin(j);
-      let p = res0(xx, yy);
+      let xx = 0 + this.r * 0.85 * cos(j);
+      let yy = 0 + this.r * 0.85 * sin(j);
+      let p = morph(xx, yy);
       curveVertex(p.x, p.y);
     }
     endShape(CLOSE);
 
     if (this.r >= 135) {
-      fill(234, 73, 135); //fuxia
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.9 * cos(j);
-        let yy = 0 + this.r *0.9 * sin(j);
-        let p = res2(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
       fill(42, 48, 47); //Negro
-      //ellipse(0, 0, this.r * 1.4);
-      beginShape();
 
+      beginShape();
       for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.8 * cos(j);
-        let yy = 0 + this.r *0.8 * sin(j);
-  
-        let p = res2(xx, yy);
+        let xx = 0 + this.r * 0.8 * cos(j);
+        let yy = 0 + this.r * 0.8 * sin(j);
+
+        let p = morph(xx, yy);
         curveVertex(p.x, p.y);
       }
       endShape(CLOSE);
-
-       if (forma == 1) {
+      if (forma == 1) {
         push();
         scale(1.0);
         translate(-r / 2.5, -r / 1.5);
@@ -76,9 +65,9 @@ function Particle(x, y, r) {
         bezierVertex(4, 9, 20, -1, 47, 0);
         endShape();
 
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         fill(42, 48, 47); //Negro
-        
+
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 40 + 8 * cos(j);
           let yy = 130 + 7 * sin(j);
@@ -87,7 +76,6 @@ function Particle(x, y, r) {
         }
         endShape();
         pop();
-
       } else if (forma == 2) {
         push();
         scale(1.55);
@@ -103,8 +91,8 @@ function Particle(x, y, r) {
         bezierVertex(85, 24, 100, 23, 100, 33);
         bezierVertex(101, 46, 85, 60, 76, 71);
         endShape();
-  
-       beginShape();  /////// particula con movimiento
+
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 100 + 10 * cos(j);
           let yy = 90 + 10 * sin(j);
@@ -114,7 +102,6 @@ function Particle(x, y, r) {
         endShape();
 
         pop();
-
       } else if (forma == 3) {
         push();
         scale(1.6);
@@ -129,7 +116,6 @@ function Particle(x, y, r) {
         bezierVertex(90, 1, 116, -7, 116, 24);
         endShape();
         pop();
-        
       } else if (forma == 4) {
         push();
         scale(2.0);
@@ -142,11 +128,11 @@ function Particle(x, y, r) {
         bezierVertex(24, 53, 19, 70, 8, 62);
         bezierVertex(-10, 47, 6, 8, 20, 1);
         bezierVertex(32, -4, 61, 6, 73, 13);
-        bezierVertex(79,16,89,24,90,34);
-        bezierVertex(93,53,88,69,68,80);
+        bezierVertex(79, 16, 89, 24, 90, 34);
+        bezierVertex(93, 53, 88, 69, 68, 80);
         endShape();
         fill(42, 48, 47); //Negro
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 30 + 7 * cos(j);
           let yy = 30 + 7 * sin(j);
@@ -155,8 +141,6 @@ function Particle(x, y, r) {
         }
         endShape();
         pop();
-
-
       } else if (forma == 5) {
         push();
         scale(1.55);
@@ -173,7 +157,7 @@ function Particle(x, y, r) {
         bezierVertex(101, 46, 85, 60, 76, 71);
         endShape();
         fill(42, 48, 47); //Negro
-       beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 30 + 10 * cos(j);
           let yy = 50 + 10 * sin(j);
@@ -183,29 +167,15 @@ function Particle(x, y, r) {
         endShape();
 
         pop();
-
-      } 
-    } 
-else
-    if (this.r >= 130 && this.r <= 134) {
-
-      fill(234, 73, 135); //fuxia
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.9 * cos(j);
-        let yy = 0 + this.r *0.9 * sin(j);
-        let p = res2(xx, yy);
-        curveVertex(p.x, p.y);
       }
-      endShape(CLOSE);
+    } else if (this.r >= 130 && this.r <= 134) {
       fill(42, 48, 47); //Negro
-      //ellipse(0, 0, this.r * 1.4);
+
       beginShape();
       for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.75 * cos(j);
-        let yy = 0 + this.r *0.75 * sin(j);
-  
-        let p = res2(xx, yy);
+        let xx = 0 + this.r * 0.75 * cos(j);
+        let yy = 0 + this.r * 0.75 * sin(j);
+        let p = morph(xx, yy);
         curveVertex(p.x, p.y);
       }
       endShape(CLOSE);
@@ -223,7 +193,7 @@ else
           let yy = 1.5 * sin(j);
           let p = morph(xx, yy);
 
-          vertex(138,69);
+          vertex(138, 69);
           bezierVertex(138, 107, 107, 143, 69, 138);
           bezierVertex(28, 132, 8, 104, 38, 104);
           bezierVertex(60, 104, 80, 65, 38, 57);
@@ -233,7 +203,7 @@ else
           bezierVertex(107, 0, 138, 31, 138, 69);
         }
         endShape();
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         fill(42, 48, 47); //Negro
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 70 + 10 * cos(j);
@@ -242,7 +212,7 @@ else
           curveVertex(p.x, p.y);
         }
         endShape();
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         fill(234, 73, 135); //fuxia
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 70 + 4 * cos(j);
@@ -254,13 +224,12 @@ else
         pop();
         //////////////////////////////////
       } else if (forma2 == 2) {
-
         push();
         scale(1.0);
         translate(-r / 3.1, -r / 3.5);
         noStroke();
         fill(236, 178, 0); //amarillo
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 30 + 60 * cos(j);
           let yy = 30 + 60 * sin(j);
@@ -270,7 +239,7 @@ else
         endShape();
         endShape();
         fill(42, 48, 47); //Negro
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 60 + 7 * cos(j);
           let yy = 30 + 7 * sin(j);
@@ -279,14 +248,13 @@ else
         }
         endShape();
         pop();
-
       } else if (forma2 == 3) {
         push();
         scale(1.0);
         translate(-r / 3.1, -r / 3.5);
         noStroke();
         fill(236, 178, 0); //amarillo
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 30 + 60 * cos(j);
           let yy = 30 + 60 * sin(j);
@@ -295,7 +263,7 @@ else
         }
         endShape();
 
-        beginShape();  /////// particula con movimiento
+        beginShape(); /////// particula con movimiento
         for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
           let xx = 90 + 7 * cos(j);
           let yy = 80 + 7 * sin(j);
@@ -304,154 +272,144 @@ else
         }
         endShape();
         pop();
-
       } else if (forma2 == 4) {
         push();
         scale(2.2);
         translate(-r / 3.8, -r / 3.3);
         noStroke();
         fill(236, 178, 0); //amarillo
-        beginShape();  /////// particula con movimiento
-        vertex(42.96,33.25);
-        bezierVertex(41,53,81,47,64,64);
-        bezierVertex(48,80,26,82,11,67);
-        bezierVertex(-3,52,-3,27,11,12);
-        bezierVertex(20,2,34,-2,45,1);
-        bezierVertex(68,7,44,15,42,33);
+        beginShape(); /////// particula con movimiento
+        vertex(42.96, 33.25);
+        bezierVertex(41, 53, 81, 47, 64, 64);
+        bezierVertex(48, 80, 26, 82, 11, 67);
+        bezierVertex(-3, 52, -3, 27, 11, 12);
+        bezierVertex(20, 2, 34, -2, 45, 1);
+        bezierVertex(68, 7, 44, 15, 42, 33);
         endShape();
 
-        
-
         pop();
-        
       } else if (forma2 == 5) {
-
         push();
         scale(1.0);
         translate(-r / 26, -r / 16);
         noStroke();
         fill(236, 178, 0); //amarillo
         beginShape();
-        vertex(39.1,-66.3);
-        bezierVertex(52.6,-59.9,66.9,-53.4,72.3,-42.3);
-        bezierVertex(77.8,-31.2,74.4,-15.6,73.9,-0.3);
-        bezierVertex(73.5,15.1,75.9,30.1,71.4,43);
-        bezierVertex(67,55.8,55.7,66.4,42.7,72.5);
-        bezierVertex(29.6,78.5,14.8,80,1.1,78.1);
-        bezierVertex(-12.7,76.2,-25.3,71,-38.9,65.3);
-        bezierVertex(-52.6,59.6,-67.2,53.4,-74.8,42.4);
-        bezierVertex(-82.4,31.5,-83,15.7,-78.1,2.8);
-        bezierVertex(-73.2,-10,-62.7,-20.1,-53.9,-29);
-        bezierVertex(-45.1,-37.9,-37.9,-45.6,-29.3,-54.8);
-        bezierVertex(-20.6,-64,-10.3,-74.6,1.2,-76.8);
-        bezierVertex(12.8,-79,25.5,-72.7,39.1,-66.3);
+        vertex(39.1, -66.3);
+        bezierVertex(52.6, -59.9, 66.9, -53.4, 72.3, -42.3);
+        bezierVertex(77.8, -31.2, 74.4, -15.6, 73.9, -0.3);
+        bezierVertex(73.5, 15.1, 75.9, 30.1, 71.4, 43);
+        bezierVertex(67, 55.8, 55.7, 66.4, 42.7, 72.5);
+        bezierVertex(29.6, 78.5, 14.8, 80, 1.1, 78.1);
+        bezierVertex(-12.7, 76.2, -25.3, 71, -38.9, 65.3);
+        bezierVertex(-52.6, 59.6, -67.2, 53.4, -74.8, 42.4);
+        bezierVertex(-82.4, 31.5, -83, 15.7, -78.1, 2.8);
+        bezierVertex(-73.2, -10, -62.7, -20.1, -53.9, -29);
+        bezierVertex(-45.1, -37.9, -37.9, -45.6, -29.3, -54.8);
+        bezierVertex(-20.6, -64, -10.3, -74.6, 1.2, -76.8);
+        bezierVertex(12.8, -79, 25.5, -72.7, 39.1, -66.3);
         endShape();
 
         pop();
-
-
-      } 
-   
-    }
-else
-    if ( this.r > 85 && this.r < 120 ) {
+      }
+    } else if (this.r > 95 && this.r < 129) {
       fill(42, 48, 47); //Negro
       beginShape();
       for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.7 * cos(j);
-        let yy = 0 + this.r *0.75 * sin(j);
-        let p = res0(xx, yy);
+        let xx = 0 + this.r * 0.7 * cos(j);
+        let yy = 0 + this.r * 0.75 * sin(j);
+        let p = morph(xx, yy);
         curveVertex(p.x, p.y);
       }
       endShape(CLOSE);
       push();
-        scale(1.0);
-        translate(-60,0);
-        noStroke();
-        fill(236, 178, 0); //amarillo
-        beginShape();
-        vertex(116,13);
-        bezierVertex(116,43,90,67,58,67);
-        bezierVertex(26,67,0,43,0,13);
-        bezierVertex(0,-15,26,10,58,10);
-        bezierVertex(90,10,116,-15,116,13);
-        endShape(CLOSE);
-        pop();
+      scale(0.9);
+      obj.update();
+      obj.display();
+      pop();
 
+    } else if (this.r > 85 && this.r < 94) {
+      fill(42, 48, 47); //Negro
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 0 + this.r * 0.7 * cos(j);
+        let yy = 0 + this.r * 0.75 * sin(j);
+        let p = morph(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
       
-
-    }
-    else
-    if ( this.r > 40 && this.r < 84 ) {
-      fill(42, 48, 47); //Negro
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.7 * cos(j);
-        let yy = 0 + this.r *0.75 * sin(j);
-        let p = res0(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
-      fill(236, 178, 0); //amarillo
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 3 + this.r *0.5 * cos(j);
-        let yy = 0 + this.r *0.5 * sin(j);
-        let p = morph(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
-    }
-    else
-    if ( this.r > 25 && this.r < 39 ) {
-      fill(42, 48, 47); //Negro
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.4 * cos(j);
-        let yy = 0 + this.r *0.45 * sin(j);
-        let p = res0(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
-      fill(236, 178, 0); //amarillo
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 3 + this.r *0.2 * cos(j);
-        let yy = 0 + this.r *0.2 * sin(j);
-        let p = morph(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
-    }     else
-    if ( this.r > 12 && this.r < 24 ) {
-      fill(42, 48, 47); //Negro
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 0 + this.r *0.4 * cos(j);
-        let yy = 0 + this.r *0.45 * sin(j);
-        let p = res0(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
-      fill(236, 178, 0); //amarillo
-      beginShape();
-      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
-        let xx = 3 + this.r *0.2 * cos(j);
-        let yy = 0 + this.r *0.2 * sin(j);
-        let p = morph(xx, yy);
-        curveVertex(p.x, p.y);
-      }
-      endShape(CLOSE);
-    }
+      push();
+      scale(0.8);
+      obj2.update();
+      obj2.display();
+      pop();
     
-    else  {
+
+    } else if (this.r > 40 && this.r < 84) {
       fill(42, 48, 47); //Negro
-      ellipse(0, 0, this.r );
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 0 + this.r * 0.7 * cos(j);
+        let yy = 0 + this.r * 0.75 * sin(j);
+        let p = morph(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
+      fill(236, 178, 0); //amarillo
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 3 + this.r * 0.5 * cos(j);
+        let yy = 0 + this.r * 0.5 * sin(j);
+        let p = morph(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
+    } else if (this.r > 25 && this.r < 39) {
+      fill(42, 48, 47); //Negro
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 0 + this.r * 0.5 * cos(j);
+        let yy = 0 + this.r * 0.52 * sin(j);
+        let p = morph(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
+      fill(236, 178, 0); //amarillo
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 3 + this.r * 0.2 * cos(j);
+        let yy = 0 + this.r * 0.2 * sin(j);
+        let p = morph(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
+    } else if (this.r > 12 && this.r < 24) {
+      fill(42, 48, 47); //Negro
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 0 + this.r * 0.4 * cos(j);
+        let yy = 0 + this.r * 0.45 * sin(j);
+        let p = res0(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
+      fill(236, 178, 0); //amarillo
+      beginShape();
+      for (let j = 0; j < TWO_PI; j += TWO_PI / 360) {
+        let xx = 3 + this.r * 0.2 * cos(j);
+        let yy = 0 + this.r * 0.2 * sin(j);
+        let p = morph(xx, yy);
+        curveVertex(p.x, p.y);
+      }
+      endShape(CLOSE);
+    } else {
+      fill(42, 48, 47); //Negro
+      // ellipse(0, 0, this.r );
     }
 
-    pop();  ////////////////////////////////////////
- 
+    pop(); ////////////////////////////////////////
   };
-
-  
 }
+
+
